@@ -148,7 +148,7 @@ const logoutUser = asyncHandlers(async (req, res) => {
   await User.findByIdAndUpdate(
     req.user._id,
     {
-      $set: { refreshToken: undefined },
+      $unset: { refreshToken: 1 }, // this removes the filed from documents
     },
     {
       new: true,
