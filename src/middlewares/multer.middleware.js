@@ -12,6 +12,8 @@
 // export const upload = multer({
 //   storage,
 // });
+
+// 2nd way to write the above code with some improvements like storing files with unique names using timestamps and using path module to handle file paths
 import multer from "multer";
 import path from "path";
 

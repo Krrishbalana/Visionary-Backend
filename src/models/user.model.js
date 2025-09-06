@@ -42,6 +42,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: [true, "password is required"],
     },
+    // to store the latest refresh token
     refreshToken: {
       type: String,
     },
@@ -49,17 +50,20 @@ const userSchema = new mongoose.Schema(
   { timestamps: true },
 );
 
+//to encrypt password before saving user
 userSchema.pre("save", async function (next) {
-  if (!this.isModified("password")) return next();
+  if (!this.isModified("password")) return next(); //if password is not modified then return next(this.modified() is a mongoose method)
 
-  this.password = await bcrypt.hash(this.password, 10);
+  this.password = await bcrypt.hash(this.password, 10); // this.password is the password entered by user //10 is the salt rounds and we are overriding the plain password with hashed password
   return next();
 });
 
+//instance methods- to check if password is correct which accepts the password entered by user as argument
 userSchema.methods.isPasswordCorrect = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
 
+//generate jwt token
 userSchema.methods.generateAccessToken = function () {
   return jwt.sign(
     {
@@ -73,6 +77,7 @@ userSchema.methods.generateAccessToken = function () {
   );
 };
 
+//generate refresh token
 userSchema.methods.generateRefreshToken = function () {
   return jwt.sign({ _id: this._id }, process.env.REFRESH_TOKEN_SECRET, {
     expiresIn: process.env.REFRESH_TOKEN_EXPIRY,
