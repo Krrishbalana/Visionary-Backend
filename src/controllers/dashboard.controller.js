@@ -4,13 +4,15 @@ import { Subscription } from "../models/subscription.model.js";
 import { Like } from "../models/like.model.js";
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
-import { asyncHandler } from "../utils/asyncHandler.js";
+import { asyncHandlers } from "../utils/asyncHandlers.js";
 
-const getChannelStats = asyncHandler(async (req, res) => {
+const getChannelStats = asyncHandlers(async (req, res) => {
   // TODO: Get the channel stats like total video views, total subscribers, total videos, total likes etc.
+  const user = req.user;
+  console.log(user);
 });
 
-const getChannelVideos = asyncHandler(async (req, res) => {
+const getChannelVideos = asyncHandlers(async (req, res) => {
   // TODO: Get all the videos uploaded by the channel
 });
 

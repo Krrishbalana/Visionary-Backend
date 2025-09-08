@@ -3,9 +3,9 @@ import { Tweet } from "../models/tweet.model.js";
 import { User } from "../models/user.model.js";
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
-import { asyncHandler } from "../utils/asyncHandler.js";
+import { asyncHandlers } from "../utils/asyncHandlers.js";
 
-const createTweet = asyncHandler(async (req, res) => {
+const createTweet = asyncHandlers(async (req, res) => {
   //TODO: create tweet
   const content = req.body.content;
   if (!content) {
@@ -19,7 +19,7 @@ const createTweet = asyncHandler(async (req, res) => {
     .json(new ApiResponse(201, "Tweet created successfully", tweet));
 });
 
-const getUserTweets = asyncHandler(async (req, res) => {
+const getUserTweets = asyncHandlers(async (req, res) => {
   // TODO: get user tweets
   const userId = req.params.userId;
   if (!isValidObjectId(userId)) {
@@ -40,7 +40,7 @@ const getUserTweets = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, "User tweets fetched successfully", tweets));
 });
 
-const updateTweet = asyncHandler(async (req, res) => {
+const updateTweet = asyncHandlers(async (req, res) => {
   //TODO: update tweet
   const tweetId = req.params.tweetId;
   if (!isValidObjectId(tweetId)) {
@@ -56,7 +56,7 @@ const updateTweet = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, "Tweet updated successfully", null));
 });
 
-const deleteTweet = asyncHandler(async (req, res) => {
+const deleteTweet = asyncHandlers(async (req, res) => {
   //TODO: delete tweet
   const tweetId = req.params.tweetId;
   if (!isValidObjectId(tweetId)) {
