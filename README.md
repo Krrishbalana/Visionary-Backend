@@ -1,9 +1,17 @@
 # 🎥 Visionary Backend
 
 ## 📜 Description
+
 The **Visionary Backend** is the server-side component of a video hosting and sharing platform, designed to provide a seamless experience for users to upload, manage, and share videos.
 
+## 🗂️ Data Model
+
+Below is the high-level data model of Visionary Backend:
+
+![Data Model](./public/data-model.png)
+
 ## 🚀 Features
+
 - **User Authentication**: Secure user authentication using JWT.
 - **Password Security**: Secure password hashing with bcrypt.
 - **Video Upload APIs**: Robust APIs for uploading and managing videos.
@@ -11,6 +19,7 @@ The **Visionary Backend** is the server-side component of a video hosting and sh
 - **Modular Architecture**: Organized routes and controllers for maintainability.
 
 ## 🛠️ Tech Stack
+
 - **Node.js**
 - **Express.js**
 - **MongoDB**
@@ -19,6 +28,7 @@ The **Visionary Backend** is the server-side component of a video hosting and sh
 - **Bcrypt**
 
 ## 📁 Project Folder Structure
+
 ```
 /visionary-backend
 │
@@ -31,37 +41,40 @@ The **Visionary Backend** is the server-side component of a video hosting and sh
 ```
 
 ## ⚙️ Setup Instructions
+
 1. Clone the repository:
-    ```bash
-    git clone https://github.com/yourusername/visionary-backend.git
-    ```
+   ```bash
+   git clone https://github.com/yourusername/visionary-backend.git
+   ```
 2. Navigate to the project directory:
-    ```bash
-    cd visionary-backend
-    ```
+   ```bash
+   cd visionary-backend
+   ```
 3. Install dependencies:
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 4. Create a `.env` file in the root directory with the following variables:
-    ```
-    PORT=your_port
-    MONGO_URI=your_mongo_uri
-    JWT_SECRET=your_jwt_secret
-    REFRESH_SECRET=your_refresh_secret
-    ```
+   ```
+   PORT=your_port
+   MONGO_URI=your_mongo_uri
+   JWT_SECRET=your_jwt_secret
+   REFRESH_SECRET=your_refresh_secret
+   ```
 5. Run the application:
-    ```bash
-    npm start
-    ```
+   ```bash
+   npm start
+   ```
 
 ## 📊 API Endpoints
-| Endpoint               | Method | Description                     |
-|-----------------------|--------|---------------------------------|
-| `/api/auth`           | POST   | User authentication             |
-| `/api/videos`         | POST   | Upload a new video             |
-| `/api/playlists`      | POST   | Create a new playlist           |
+
+| Endpoint         | Method | Description           |
+| ---------------- | ------ | --------------------- |
+| `/api/auth`      | POST   | User authentication   |
+| `/api/videos`    | POST   | Upload a new video    |
+| `/api/playlists` | POST   | Create a new playlist |
 
 ## 👤 Author
+
 **Krish Balana**  
-[Portfolio](#) | [LinkedIn](#) | [GitHub](#)
+[Portfolio](https://krishbalana-me.vercel.app/) | [LinkedIn](https://www.linkedin.com/in/krrish-balana/) | [GitHub](https://github.com/Krrishbalana)
